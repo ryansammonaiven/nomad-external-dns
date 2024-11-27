@@ -37,7 +37,7 @@ func (app *App) fetchNomadServices() (map[string]ServiceMeta, error) {
 
 // fetchServiceList retrieves the list of services from the Nomad API.
 func (app *App) fetchServiceList() ([]*api.ServiceRegistrationListStub, error) {
-	servicesList, _, err := app.nomadClient.Services().List(&api.QueryOptions{Namespace: "*"})
+	servicesList, _, err := app.nomadClient.Services().List(&api.QueryOptions{})
 	if err != nil {
 		return nil, fmt.Errorf("error listing services: %w", err)
 	}
